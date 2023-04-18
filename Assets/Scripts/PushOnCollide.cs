@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class OnFogCollide : MonoBehaviour
+public class PushOnCollide : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
@@ -13,6 +13,7 @@ public class OnFogCollide : MonoBehaviour
     public float IgnoreTimeLimit = 0.1f;
     private float _elapsedTime;
     private float _walkawayTime => WalkawayDistance / WalkawaySpeed;
+    public bool IsPushed => _elapsedTime >= IgnoreTimeLimit;
     
     private float _startTime;
     private GameObject _collider;
@@ -26,6 +27,8 @@ public class OnFogCollide : MonoBehaviour
         var bounds = GetComponent<BoxCollider2D>().bounds;
         _boxColliderMaxY = bounds.max.y;
         _boxColliderMinY = bounds.min.y;
+
+        OnPush += SetMoveFunction;
     }
 
     private void Update()
@@ -44,12 +47,17 @@ public class OnFogCollide : MonoBehaviour
         if (col.collider.bounds.max.y < _boxColliderMinY || col.collider.bounds.min.y > _boxColliderMaxY)
             return;
         
-        if (_elapsedTime < IgnoreTimeLimit)
+        if (!IsPushed)
         {
             _elapsedTime += Time.deltaTime;
             return;
         }
 
+        OnPush?.Invoke(col);
+    }
+
+    private void SetMoveFunction(Collision2D col)
+    {
         var directon = col.gameObject.transform.position.x < transform.position.x ? -1 : 1;
         var distance = new Vector3(WalkawayDistance * directon, 0);
         var pos = col.gameObject.transform.position;
@@ -58,4 +66,6 @@ public class OnFogCollide : MonoBehaviour
 
         _lerp = () => Vector3.Lerp(pos, pos + distance, (Time.time - _startTime) / _walkawayTime);
     }
+
+    public event Action<Collision2D> OnPush;
 }
