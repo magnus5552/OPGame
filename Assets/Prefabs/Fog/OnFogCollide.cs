@@ -5,9 +5,9 @@ public class OnFogCollide : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
-    public int WalkawayDistance = 2;
+    public float WalkawayDistance = 2;
     [SerializeField] 
-    public int WalkawaySpeed = 2;
+    public float WalkawaySpeed = 2;
     
     [SerializeField] 
     public float IgnoreTimeLimit = 0.1f;

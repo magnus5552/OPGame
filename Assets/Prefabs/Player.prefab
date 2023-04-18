@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2762750386539676554}
   - component: {fileID: 2762750386539676565}
   - component: {fileID: 2762750386539676564}
-  - component: {fileID: 2762750386539676566}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -97,22 +96,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5845485, y: 1.818368}
   m_EdgeRadius: 0
---- !u!111 &2762750386539676566
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2762750386539676552}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 3f7915c6040fe0a4db9e38ea35b6691f, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 3f7915c6040fe0a4db9e38ea35b6691f, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &2762750386935132604
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,8 +122,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2762750386935132604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: -0.0019, y: 0.0474, z: 0}
+  m_LocalScale: {x: 10.216, y: 10.3289995, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2762750386539676555}
@@ -187,7 +170,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 72de0c64f2c6a498096698322c976a67, type: 3}
+  m_Sprite: {fileID: -1577718444, guid: 2a6afe4b044f8c24393896f725732226, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -292,8 +275,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 72de0c64f2c6a498096698322c976a67, type: 3}
-  m_Color: {r: 0.509434, g: 0.040850844, b: 0.040850844, a: 1}
+  m_Sprite: {fileID: 1305148762, guid: 2a6afe4b044f8c24393896f725732226, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
