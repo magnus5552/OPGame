@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class PushOnCollide : MonoBehaviour
@@ -11,13 +14,12 @@ public class PushOnCollide : MonoBehaviour
     
     [SerializeField] 
     public float IgnoreTimeLimit = 0.1f;
+    private float _startTime;
     private float _elapsedTime;
     private float _walkawayTime => WalkawayDistance / WalkawaySpeed;
     public bool IsPushed => _elapsedTime >= IgnoreTimeLimit;
     
-    private float _startTime;
-    private GameObject _collider;
-    private Func<Vector3> _lerp;
+    private Action _move;
 
     private float _boxColliderMinY;
     private float _boxColliderMaxY;
@@ -34,7 +36,9 @@ public class PushOnCollide : MonoBehaviour
     private void Update()
     {
         if (Time.time - _startTime < _walkawayTime)
-            _collider.transform.position = _lerp();
+        {
+            _move?.Invoke();
+        }
     }
 
     private void OnCollisionEnter2D()
@@ -59,12 +63,12 @@ public class PushOnCollide : MonoBehaviour
     private void SetMoveFunction(Collision2D col)
     {
         var directon = col.gameObject.transform.position.x < transform.position.x ? -1 : 1;
-        var distance = new Vector3(WalkawayDistance * directon, 0);
-        var pos = col.gameObject.transform.position;
+        var distance = new Vector3(WalkawaySpeed * WalkawayDistance * directon, 0);
         _startTime = Time.time;
-        _collider = col.gameObject;
+        
+        var rb = col.gameObject.GetComponent<Rigidbody2D>();
 
-        _lerp = () => Vector3.Lerp(pos, pos + distance, (Time.time - _startTime) / _walkawayTime);
+        _move = () => rb.AddForce(distance);
     }
 
     public event Action<Collision2D> OnPush;
