@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6225769477208258576}
   - component: {fileID: 75003337387909478}
-  - component: {fileID: 75003337387909481}
   - component: {fileID: 75003337387909479}
+  - component: {fileID: 2536042787301197625}
   m_Layer: 0
   m_Name: Bear
   m_TagString: Untagged
@@ -62,21 +62,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.35710543, y: 0.74966943}
   m_EdgeRadius: 0
---- !u!114 &75003337387909481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 75003337387909480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd8fc41c083bba641b5fa44952690547, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WalkawayDistance: 10
-  WalkawaySpeed: 20
-  IgnoreTimeLimit: 0.1
 --- !u!114 &75003337387909479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,6 +76,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackAnimator: {fileID: 6363690744840808310}
   whiteAnimator: {fileID: 8962555328183833897}
+--- !u!114 &2536042787301197625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75003337387909480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3cdee2299018c44c830637db4e96fa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WalkawayDistance: 2
+  WalkawaySpeed: 2
+  IgnoreTimeLimit: 0.1
 --- !u!1 &3996393296143808849
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,6 +196,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8525114472644098412
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,3 +302,4 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
