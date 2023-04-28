@@ -13,7 +13,6 @@ public class ButtonLogic : MonoBehaviour
     public void Start()
     {
         text.SetActive(false);
-        bookOpened.SetActive(false);
     }
 
     public void OnMouseEnter()
