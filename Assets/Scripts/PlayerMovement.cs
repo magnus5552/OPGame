@@ -6,11 +6,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D _cc;
     [SerializeField]
     private float velocity;
-
-    private float _rotate;
+    
+    private Rigidbody2D _cc;
 
     // Start is called before the first frame update
     void Start()

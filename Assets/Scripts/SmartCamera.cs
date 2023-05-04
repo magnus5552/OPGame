@@ -17,8 +17,6 @@ public class SmartCamera : MonoBehaviour
     private float outsideRightLeftSide;
     private float outsideUpDownSide;
 
-    private float maxSpeedPlayer;
-
     void Start()
     {
         transform.position = new Vector3(player.position.x, player.position.y, -10);
