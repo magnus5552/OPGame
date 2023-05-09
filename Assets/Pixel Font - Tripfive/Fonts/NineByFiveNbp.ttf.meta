@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a911e0c5a765eb647a9a09b524129a66
+guid: a75c3c59c2d7a6d488d55ae8c8629f0e
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,11 +9,10 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Technofosiano
-  fallbackFontReferences:
-  - {fileID: 12800000, guid: 13d7ebe1cf9de004fb29b3dd3685f651, type: 3}
+  - Nine By Five NBP
+  fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 0
+  fontRenderingMode: 2
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
   shouldRoundAdvanceValue: 1
