@@ -1011,6 +1011,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 921685128913333809, guid: 0d7c68828901c1844b527af800bc8580, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 921685128913333814, guid: 0d7c68828901c1844b527af800bc8580, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -1274,6 +1278,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!1 &739717601 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6987684129195681196, guid: 1daf6dea0b0167445a0d3325b68c74b8, type: 3}
+  m_PrefabInstance: {fileID: 1041309531}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &739717603
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739717601}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a980d375a09439e4b86003b19efc1a59, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &748077924 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2762750386935132604, guid: 1daf6dea0b0167445a0d3325b68c74b8, type: 3}
@@ -1779,7 +1808,7 @@ PrefabInstance:
     - target: {fileID: 2762750386539676554, guid: 1daf6dea0b0167445a0d3325b68c74b8, type: 3}
       propertyPath: blackAnimator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 739717603}
     - target: {fileID: 2762750386539676554, guid: 1daf6dea0b0167445a0d3325b68c74b8, type: 3}
       propertyPath: whiteAnimator
       value: 
@@ -1861,6 +1890,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2762750387422994845, guid: 1daf6dea0b0167445a0d3325b68c74b8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3572655965446760112, guid: 1daf6dea0b0167445a0d3325b68c74b8, type: 3}
       propertyPath: m_SortingOrder
       value: 4
       objectReference: {fileID: 0}
