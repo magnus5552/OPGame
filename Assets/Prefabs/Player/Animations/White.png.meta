@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5b93eb5e425b6bf47b0289edb7fb2c4b
+guid: 53a17950bc1f39d4482025b7df9df724
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
         x: 8
         y: 2
         width: 27
-        height: 46
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53e84fc00d257a5428370b23385a84ca
-      internalID: -1961164640
+      spriteID: 4e91eab19df2d4c49a3fa102c29982a8
+      internalID: 805447148
       vertices: []
       indices: 
       edges: []
@@ -144,7 +144,7 @@ TextureImporter:
         x: 39
         y: 2
         width: 26
-        height: 46
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cde7a8a3e410c6459229dd22484acc8
-      internalID: 1839703922
+      spriteID: 18ff04ba04ec4354fad6cb3fb24da31f
+      internalID: 178921509
       vertices: []
       indices: 
       edges: []
@@ -165,7 +165,7 @@ TextureImporter:
         x: 70
         y: 2
         width: 27
-        height: 46
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,8 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 044fe5d61a21106478d22a5a867f14d2
-      internalID: -143076598
+      spriteID: fc5de5d26f8acc142874db92c62a8b11
+      internalID: -1158777285
       vertices: []
       indices: 
       edges: []
@@ -190,9 +190,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      White_0: -1961164640
-      White_1: 1839703922
-      White_2: -143076598
+      White_0: 805447148
+      White_1: 178921509
+      White_2: -1158777285
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
