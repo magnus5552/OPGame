@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D _cc;
 
+    private bool _isPlayerMove;
+    private static readonly int IsPlayerMove = Animator.StringToHash("IsPlayerMove");
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,19 @@ public class PlayerMovement : MonoBehaviour
         }
 
         _cc.velocity = movement * velocity;
+
+        var (dx, dy) = (Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        
+        _isPlayerMove = dx != 0 || dy != 0;
+        ActivateTriggers();
+
+        _cc.velocity = new Vector3(dx, dy) * velocity;
+    }
+    
+    private void ActivateTriggers()
+    {
+        blackAnimator.SetBool(IsPlayerMove, _isPlayerMove);
+        whiteAnimator.SetBool(IsPlayerMove, _isPlayerMove);
     }
 }
 
