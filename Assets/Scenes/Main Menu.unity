@@ -209,7 +209,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1749611706}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: ExitGame
+        m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -467,7 +467,8 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: 5cead04cb4cf7b44ba8ebee653e29a47, type: 2}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 5cead04cb4cf7b44ba8ebee653e29a47,
+    type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
@@ -655,7 +656,8 @@ MonoBehaviour:
   m_text: "\u0418\u0433\u0440\u0430\u0442\u044C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5c2479680b185714cb80a30daf24fc16, type: 2}
-  m_sharedMaterial: {fileID: 194521401453941285, guid: 5c2479680b185714cb80a30daf24fc16, type: 2}
+  m_sharedMaterial: {fileID: 194521401453941285, guid: 5c2479680b185714cb80a30daf24fc16,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -670,7 +672,8 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: 5cead04cb4cf7b44ba8ebee653e29a47, type: 2}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 5cead04cb4cf7b44ba8ebee653e29a47,
+    type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
@@ -893,7 +896,8 @@ MonoBehaviour:
   m_text: "\u0412\u044B\u0439\u0442\u0438"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5c2479680b185714cb80a30daf24fc16, type: 2}
-  m_sharedMaterial: {fileID: 194521401453941285, guid: 5c2479680b185714cb80a30daf24fc16, type: 2}
+  m_sharedMaterial: {fileID: 194521401453941285, guid: 5c2479680b185714cb80a30daf24fc16,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -908,7 +912,8 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: 5cead04cb4cf7b44ba8ebee653e29a47, type: 2}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 5cead04cb4cf7b44ba8ebee653e29a47,
+    type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}

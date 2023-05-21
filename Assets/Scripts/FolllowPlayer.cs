@@ -9,7 +9,7 @@ public class FolllowPlayer : MonoBehaviour
     private Transform player;
     [SerializeField]
     private float distance;
-    private bool stop = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +20,7 @@ public class FolllowPlayer : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        var brother = GetComponent<Animator>();
         Vector3 moveVector = new();
         var brotherPosition = transform.position;
         var playerPosition = player.position;
@@ -31,6 +32,13 @@ public class FolllowPlayer : MonoBehaviour
             moveVector = new();
         else if (currentDistance > Math.Abs(distance) / 2f)
             moveVector = new Vector3(1 / 3f * differenceX, 1 / 4f * differenceY, 0);
+
+        if (moveVector.magnitude > 0)
+            brother.SetBool("BrotherRun", true);
+        //brother.SetBool("BrotherMove", true);
+        else
+            brother.SetBool("BrotherRun", false);
+        //brother.SetBool("BrotherMove", false);
 
         transform.position = Vector3.Lerp(brotherPosition, brotherPosition + moveVector,
             Time.deltaTime * Math.Abs((int)distance) / 2f);
