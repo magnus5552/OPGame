@@ -26,11 +26,10 @@ public class ModeChanger : MonoBehaviour
         if (Input.GetKeyUp(_keyCode))
         {
             ChangeMode();
-            UpdateMode();
         }
     }
 
-    private void ChangeMode()
+    public void ChangeMode()
     {
         _currentMode = _currentMode switch
         {
@@ -38,6 +37,7 @@ public class ModeChanger : MonoBehaviour
             Mode.Black => Mode.White,
             _ => throw new ArgumentOutOfRangeException()
         };
+        UpdateMode();
     }
 
     private void UpdateMode()
