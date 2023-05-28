@@ -43,3 +43,54 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: bg
+    uniqueID: 4049980425
+    locked: 0
+  - name: leftFrame
+    uniqueID: 2580415129
+    locked: 0
+  - name: centreFrame
+    uniqueID: 2921074455
+    locked: 0
+  - name: rightFrame
+    uniqueID: 1048466027
+    locked: 0
+  - name: barrier
+    uniqueID: 3993343783
+    locked: 0
+  - name: item
+    uniqueID: 4098361447
+    locked: 0
+  - name: person
+    uniqueID: 2875047873
+    locked: 0
+  - name: background
+    uniqueID: 3631955743
+    locked: 0
+  - name: bgSprites
+    uniqueID: 2120750079
+    locked: 0
+  - name: layer1
+    uniqueID: 3280523853
+    locked: 0
+  - name: layer2
+    uniqueID: 678640321
+    locked: 0
+  - name: layer3
+    uniqueID: 3371990525
+    locked: 0
+  - name: layer4
+    uniqueID: 4237685167
+    locked: 0
+  - name: layer5
+    uniqueID: 2733978289
+    locked: 0
+  - name: layer6
+    uniqueID: 113057999
+    locked: 0
+  - name: layer7
+    uniqueID: 1431179139
+    locked: 0
+  - name: layer8
+    uniqueID: 1658010237
+    locked: 0

@@ -33,8 +33,8 @@ public class ThrowItem : MonoBehaviour
         var enemyPosition = enemy.position;
         var playerPosition = player.transform.position;
         var direction = enemyPosition - playerPosition;
-        // ballistic
-        /*while (true)
+        /*// ballistic
+        while (true)
         {
             // рассчитываем расстояние между начальной и конечной точками
             float distance = Vector3.Distance(startPos, target.position);
@@ -57,8 +57,8 @@ public class ThrowItem : MonoBehaviour
             {
                 break;
             }
-        }*/
-
+        }
+*/
     }
     
 }

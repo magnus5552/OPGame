@@ -6,7 +6,7 @@ using System;
 public class FolllowPlayer : MonoBehaviour
 {
     [SerializeField]
-    private Transform player;
+    private Transform player, street;
     [SerializeField]
     private float distance;
 
@@ -23,7 +23,7 @@ public class FolllowPlayer : MonoBehaviour
         var brother = GetComponent<Animator>();
         Vector3 moveVector = new();
         var brotherPosition = transform.position;
-        var playerPosition = player.position;
+        var playerPosition = player.position - new Vector3(0, 1, 0);
         var differenceX = playerPosition.x - brotherPosition.x;
         var differenceY = playerPosition.y - brotherPosition.y;
         var currentDistance = Math.Sqrt(differenceX * differenceX + differenceY * differenceY);
@@ -35,10 +35,8 @@ public class FolllowPlayer : MonoBehaviour
 
         if (moveVector.magnitude > 0)
             brother.SetBool("BrotherRun", true);
-        //brother.SetBool("BrotherMove", true);
         else
             brother.SetBool("BrotherRun", false);
-        //brother.SetBool("BrotherMove", false);
 
         transform.position = Vector3.Lerp(brotherPosition, brotherPosition + moveVector,
             Time.deltaTime * Math.Abs((int)distance) / 2f);
