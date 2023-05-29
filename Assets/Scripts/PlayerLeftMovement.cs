@@ -5,8 +5,6 @@ using UnityEngine;
 public class PlayerLeftMovement : MonoBehaviour
 {
     [SerializeField]
-    private float velocity;
-    [SerializeField]
     private Animator blackAnimator, whiteAnimator;
     [SerializeField]
     private Transform street;
@@ -14,13 +12,16 @@ public class PlayerLeftMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        var moveY = Input.GetAxis("Vertical");
-
         if (street.GetComponent<ChangeRun>().EventRun)
         {
-            blackAnimator.SetBool("isMove", true);
-            whiteAnimator.SetBool("isMove", true);
-            transform.position += Vector3.left * velocity + new Vector3(0, moveY, 0);
+            blackAnimator.SetBool("BlackMove", true);
+            whiteAnimator.SetBool("WhiteMove", true);
+            transform.position += new Vector3(0, Input.GetAxis("Vertical")/10, 0);
+        }
+        else
+        {
+            blackAnimator.SetBool("BlackMove", false);
+            whiteAnimator.SetBool("WhiteMove", false);
         }
     }
 }

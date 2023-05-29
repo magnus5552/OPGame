@@ -25,12 +25,14 @@ public class Generation : MonoBehaviour
         }
     }
 
-    private List<(float, float, GameObject)> Generate()
+    private List<(float, float, GameObject)> Generate(Transform sprite)
     {
         field = new();
-        var generationLength = (RightSideGeneration - LeftSideGeneration) / 8;
+        LeftSideGeneration = sprite.position.x - 56.6f;
+        RightSideGeneration = sprite.position.x + 28.3f;
+        var generationLength = (RightSideGeneration - LeftSideGeneration) / 16;
 
-        for (var i = 0; i < 8; i++)
+        for (var i = 0; i < 16; i++)
         {
             var y = Random.Range(bottomSideGeneration, topSideGeneration);
             var x = Random.Range(LeftSideGeneration + i * generationLength, LeftSideGeneration + (i + 1) * generationLength);
@@ -42,10 +44,14 @@ public class Generation : MonoBehaviour
         return field;
     }
 
-    public void OutputGeneration()
+    public void OutputGeneration(Transform sprite)
     {
-        var fieldItems = Generate();
+        var fieldItems = Generate(sprite);
         foreach (var item in fieldItems)
+        {
             item.Item3.transform.position = new Vector3(item.Item1, item.Item2, 0);
+            item.Item3.transform.localScale *= 4;
+            item.Item3.transform.SetParent(sprite);
+        }   
     }
 }

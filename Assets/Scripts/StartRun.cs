@@ -4,20 +4,12 @@ using UnityEngine;
 
 public class StartRun : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private Transform street, player, jhon;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
     public void StartChase()
     {
-
+        player.position = new Vector3(120, -10, 0);
+        street.GetComponent<ChangeRun>().EventRun = true;
     }
 }

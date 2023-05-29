@@ -5,34 +5,37 @@ using UnityEngine;
 public class JoneMovement : MonoBehaviour
 {
     [SerializeField]
-    private float velocity, maxDistance;
+    private float velocityX, velocityY, bottomSide, topSide, distance;
     [SerializeField]
     private Animator jone;
     [SerializeField]
-    private Transform street;
-    private bool isFar = false;
-
+    private Transform street, player;
+    
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (street.GetComponent<ChangeRun>().EventRun && isFar)
+        var eventRun = street.GetComponent<ChangeRun>().EventRun;
+
+        if (eventRun)
         {
             jone.SetBool("isMove", true);
-            transform.position += Vector3.left * velocity * 2;
+            var offsetY = Random.Range(-velocityY, velocityY);
+            if (transform.position.y >= topSide || transform.position.y <= bottomSide)
+                offsetY = -offsetY;
+
+            transform.position += new Vector3(velocityX, offsetY, 0);
         }
-        else if (street.GetComponent<ChangeRun>().EventRun)  
+
+        if ((player.position.x - transform.position.x) <= distance)
         {
-            jone.SetBool("isMove", true);
-            transform.position += Vector3.left * velocity;
+            // Запуск катсцены
+            street.GetComponent<ChangeRun>().EventRun = false;
         }
     }
 
     public void ChangeVelocity(float value)
     {
-        velocity += value;
-        if (velocity >= maxDistance)
-            isFar = true;
-        //else if(velocity )
+        velocityX += value;
     }
 
 
