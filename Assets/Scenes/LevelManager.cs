@@ -1,22 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    private static int _currentLevel = 0;
+    private int _currentLevel = 1;
 
     public void OnCollisionEnter2D(Collision2D col)
     {
         LoadNextScene();
     }
 
-    public static void LoadNextScene()
+    public void LoadNextScene()
     {
         _currentLevel += 1;
-        SceneManager.LoadScene("Level2");
+        SceneManager.LoadScene($"Level{_currentLevel}");
     }
 }

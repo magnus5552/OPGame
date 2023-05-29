@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ModeChanger : MonoBehaviour
 {
-    [SerializeField] private Mode _currentMode;
+    [SerializeField] public Mode currentMode;
     [SerializeField] private KeyCode _keyCode;
     private GameObject[] _whiteObjects;
     private GameObject[] _blackObjects;
@@ -13,11 +16,19 @@ public class ModeChanger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _currentMode = Mode.White;
+        currentMode = Mode.White;
         _whiteObjects = GameObject.FindGameObjectsWithTag("WhiteObject");
         _blackObjects = GameObject.FindGameObjectsWithTag("BlackObject");
-        
+        //AddEvents();
         UpdateMode();
+    }
+
+    private void AddEvents()
+    {
+        foreach (var obj in _whiteObjects.Concat(_blackObjects))
+        {
+            obj.AddComponent<InstanceGameChanger>();
+        }
     }
 
     // Update is called once per frame
@@ -26,30 +37,30 @@ public class ModeChanger : MonoBehaviour
         if (Input.GetKeyUp(_keyCode))
         {
             ChangeMode();
-            UpdateMode();
         }
     }
 
-    private void ChangeMode()
+    public void ChangeMode()
     {
-        _currentMode = _currentMode switch
+        currentMode = currentMode switch
         {
             Mode.White => Mode.Black,
             Mode.Black => Mode.White,
             _ => throw new ArgumentOutOfRangeException()
         };
+        UpdateMode();
     }
 
     private void UpdateMode()
     {
         foreach (var obj in _whiteObjects)
         {
-            obj.SetActive(_currentMode == Mode.White);
+            obj.SetActive(currentMode == Mode.White);
         }
 
         foreach (var obj in _blackObjects)
         {
-            obj.SetActive(_currentMode == Mode.Black);
+            obj.SetActive(currentMode == Mode.Black);
         }
     }
 }

@@ -533,11 +533,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2762750386539676555, guid: 1daf6dea0b0167445a0d3325b68c74b8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 120.3
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2762750386539676555, guid: 1daf6dea0b0167445a0d3325b68c74b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.9
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2762750386539676555, guid: 1daf6dea0b0167445a0d3325b68c74b8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -855,7 +855,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404163117}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.05, y: -1.61, z: 0}
+  m_LocalPosition: {x: 19.75, y: -1.74, z: 0}
   m_LocalScale: {x: 0.12161053, y: 0.12161053, z: 0.6080527}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -898,8 +898,10 @@ MonoBehaviour:
   velocityY: 0.1
   bottomSide: -3
   topSide: -1.4
+  distance: 5
   jone: {fileID: 404163120}
   street: {fileID: 1740522899}
+  player: {fileID: 238388308}
 --- !u!114 &404163122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2248,7 +2250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab3b415e67a8c646a4d0b6de668d55a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 0
   blackAnimator: {fileID: 303252236}
   whiteAnimator: {fileID: 1188533305}
   street: {fileID: 1740522899}
