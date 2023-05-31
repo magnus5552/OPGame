@@ -10,12 +10,14 @@ public class ModeChanger : MonoBehaviour
 {
     [SerializeField] public Mode currentMode;
     [SerializeField] private KeyCode _keyCode;
+    private AudioSource _audio;
     private GameObject[] _whiteObjects;
     private GameObject[] _blackObjects;
 
     // Start is called before the first frame update
     void Start()
     {
+        _audio = GetComponent<AudioSource>();
         currentMode = Mode.White;
         _whiteObjects = GameObject.FindGameObjectsWithTag("WhiteObject");
         _blackObjects = GameObject.FindGameObjectsWithTag("BlackObject");
@@ -42,6 +44,8 @@ public class ModeChanger : MonoBehaviour
 
     public void ChangeMode()
     {
+        _audio.PlayOneShot(_audio.clip);
+        Debug.Log(_audio.isPlaying);
         currentMode = currentMode switch
         {
             Mode.White => Mode.Black,
