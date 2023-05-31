@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,9 @@ public class JoneMovement : MonoBehaviour
     [SerializeField]
     private Animator jone;
     [SerializeField]
-    private Transform street, player, eventSystem;
-    
+    private Transform street, player;
+    private Animator john;
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -21,7 +23,7 @@ public class JoneMovement : MonoBehaviour
         if (eventRun)
         {
             jone.SetBool("isMove", true);
-            var offsetY = Random.Range(-velocityY, velocityY);
+            var offsetY = UnityEngine.Random.Range(-velocityY, velocityY);
             if (transform.position.y >= (topSide - 3f) || transform.position.y <= (bottomSide + 3f))
                 offsetY = -offsetY;
 
@@ -31,7 +33,9 @@ public class JoneMovement : MonoBehaviour
         if ((player.position.x - transform.position.x) <= distance)
         {
             // Запуск катсцены
-            eventSystem.GetComponent<EndRun>().EndChase();
+            End();
+            street.GetComponent<ChangeRun>().EventRun = false;
+            john.SetBool("isMove", false);
         }
     }
 
@@ -40,5 +44,5 @@ public class JoneMovement : MonoBehaviour
         velocityX += value;
     }
 
-
+    public event Action End;
 }
