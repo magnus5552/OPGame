@@ -4,35 +4,13 @@ using UnityEngine;
 
 public class MarketStop : MonoBehaviour
 {
-/*
     [SerializeField]
-    public GameObject target;
-
-    private Teleport _targetTeleport;
-
-    private bool _isAbleToTeleport = true;
-
-    public void Start()
-    {
-        _targetTeleport = target.GetComponent<Teleport>();
-    }
+    private Transform street, player;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!_isAbleToTeleport) return;
-
-        other.transform.position = target.transform.position;
-        _isAbleToTeleport = false;
-        _targetTeleport._isAbleToTeleport = false;
+        player.GetComponent<Rigidbody2D>().velocity = new Vector3();
+        street.GetComponent<ChangeRun>().EventRun = true;
+        player.position = new Vector3(120, -10, 0);
     }
-
-    private void Update()
-    {
-        
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        _isAbleToTeleport = true;
-    }*/
 }

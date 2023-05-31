@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private float velocity;
     [SerializeField]
     private Animator blackAnimator, whiteAnimator;
+    [SerializeField]
+    private Transform street, blackPlayer, whitePlayer;
 
     private Rigidbody2D _cc;
 
@@ -27,7 +29,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Move();
+        var run = street.GetComponent<ChangeRun>().EventRun;
+
+        if (!run)
+            Move();
     }
 
     private void FlipIfDirectionChanged(float dir)
@@ -48,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+
         var movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
         if (movement.magnitude > 0)
         {

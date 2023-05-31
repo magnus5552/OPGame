@@ -7,7 +7,7 @@ public class FastTP : MonoBehaviour
     [SerializeField]
     public GameObject target;
     [SerializeField]
-    private Transform camera, brother;
+    private Transform fastCamera, brother;
     private FastTP _targetTeleport;
 
     private bool _isAbleToTeleport = true;
@@ -21,13 +21,13 @@ public class FastTP : MonoBehaviour
     {
         if (!_isAbleToTeleport) return;
 
-        var side = (other.transform.position.x - camera.position.x >= 0) ? 0.5f : -0.5f;
-        var differenceC = other.transform.position - camera.position;
+        var side = (other.transform.position.x - fastCamera.position.x >= 0) ? 0.5f : -0.5f;
+        var differenceC = other.transform.position - fastCamera.position;
         //var differenceB = other.transform.position - brother.position;
         var differenceY = target.transform.position.y - other.transform.position.y;
 
         other.transform.position = target.transform.position - new Vector3(side, differenceY, 0);
-        camera.position = target.transform.position - differenceC - new Vector3(side, differenceY, 0);
+        fastCamera.position = target.transform.position - differenceC - new Vector3(side, differenceY, 0);
         brother.position = target.transform.position; //- new Vector3(side, differenceY, 0) - differenceB
 
         _isAbleToTeleport = false;
