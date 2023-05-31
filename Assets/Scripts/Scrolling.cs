@@ -13,7 +13,8 @@ public class Scrolling : MonoBehaviour
 
     private void Start()
     {
-        street.GetComponent<Generation>().OutputGeneration(sprites[2]);
+        street.GetComponent<Generation>().Generate(sprites[2]);
+        street.GetComponent<Generation>().Generate(sprites[0]);
     }
 
     void FixedUpdate()
@@ -33,7 +34,8 @@ public class Scrolling : MonoBehaviour
             sprites[5].position += Vector3.left * offset1;
             (sprites[0], sprites[1], sprites[2], sprites[3], sprites[4], sprites[5]) =
             (sprites[4], sprites[5], sprites[0], sprites[1], sprites[2], sprites[3]);
-            street.GetComponent<Generation>().OutputGeneration(sprites[0]);
+            street.GetComponent<Generation>().DeleteGeneration(sprites[0]);
+            street.GetComponent<Generation>().Generate(sprites[0]);
         }
     }
 

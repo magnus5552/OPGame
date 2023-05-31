@@ -10,13 +10,6 @@ public class FolllowPlayer : MonoBehaviour
     [SerializeField]
     private float distance;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        transform.position = player.position + new Vector3(-4, -1, 0);
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -34,7 +27,9 @@ public class FolllowPlayer : MonoBehaviour
             moveVector = new Vector3(1 / 3f * differenceX, 1 / 4f * differenceY, 0);
 
         if (moveVector.magnitude > 0)
+        {
             brother.SetBool("BrotherRun", true);
+        }
         else
             brother.SetBool("BrotherRun", false);
 

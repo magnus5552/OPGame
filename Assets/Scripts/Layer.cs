@@ -5,39 +5,45 @@ using UnityEngine;
 public class Layer : MonoBehaviour
 {
     [SerializeField]
-    private bool isMove;
-    [SerializeField]
-    private float offset;
-    [SerializeField]
-    private Transform street;
+    private List<Transform> moveRunObjects;
+    private float[] offsets;
 
     // Start is called before the first frame update
     void Start()
     {
-        offset = 0;
-        isMove = false;
-        CheckLayer();
+        offsets = new float[]
+        {
+            -3f,
+            -3.5f,
+            -3.5f
+        };
+        for (var i = 0; i < moveRunObjects.Count; i++)
+            CheckLayer(moveRunObjects[i], offsets[i]);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (isMove)
+        var eventRun = gameObject.GetComponent<ChangeRun>().EventRun;
+
+        if (eventRun)
         {
-            CheckLayer();
+            for (var i = 0; i < moveRunObjects.Count; i++)
+                CheckLayer(moveRunObjects[i], offsets[i]);
         }
     }
 
-    private void CheckLayer()
+    public void CheckLayer(Transform gameObject, float offset)
     {
-        var segments = street.GetComponent<Generation>().segments;
-        var bottom = street.GetComponent<Generation>().bottomSideGeneration;
+        var segments = transform.GetComponent<Generation>().segments;
+        var bottom = transform.GetComponent<Generation>().bottomSideGeneration;
         var isIncluded = false;
-        var y = (transform.position + new Vector3(0, offset, 0)).y;
 
-        for (var i = 0; i < 20; i++)
+        var y = gameObject.transform.position.y + offset;
+
+        for (var i = 0; i < 10; i++)
         {
-            if (y > bottom + (19 - i) * segments)
+            if (y > bottom + (9 - i) * segments)
             {
                 gameObject.GetComponent<SpriteRenderer>().sortingOrder = 10 + i;
                 isIncluded = true;
@@ -46,6 +52,6 @@ public class Layer : MonoBehaviour
         }
 
         if (!isIncluded)
-            gameObject.GetComponent<SpriteRenderer>().sortingOrder = 29;
+            gameObject.GetComponent<SpriteRenderer>().sortingOrder = 20;
     }
 }

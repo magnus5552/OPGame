@@ -5,15 +5,17 @@ using UnityEngine;
 public class Barrier : MonoBehaviour
 {
     [SerializeField]
-    private Transform jone;
+    private float force;
 
-    private void OnTriggerEnter(Collider other)
+    public Transform jone, street;
+    
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        var rightSide = gameObject.GetComponent<EdgeCollider2D>().bounds.max.x;
-        var leftSide = gameObject.GetComponent<EdgeCollider2D>().bounds.min.x;
+        var rightSide = gameObject.GetComponent<BoxCollider2D>().bounds.max.x;
+        var leftSide = gameObject.GetComponent<BoxCollider2D>().bounds.min.x;
         var otherLeftSide = other.bounds.min.x;
         var otherRigthSide = other.bounds.max.x;
         if (otherLeftSide >= leftSide || otherRigthSide <= rightSide)
-            jone.GetComponent<JoneMovement>().ChangeVelocity(0.1f);
+            jone.position = Vector3.Lerp(jone.position, Vector3.left * force, Time.deltaTime / 4);
     }
 }
