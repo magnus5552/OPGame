@@ -2,19 +2,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.Timeline;
 using UnityEngine.UI;
 
 public class MiniGame : MonoBehaviour
 {
     [SerializeField] 
-    public Sprite CardBack;
+    private Sprite CardBack;
 
     [SerializeField] 
-    public double FlipTime;
+    private double FlipTime;
     
     private HashSet<Card> _cards;
     private Card _currentCard;
-    // Start is called before the first frame update
+    
+    public event Action OnGameEnd;
+    
     public void Start()
     {
         _currentCard = null;
@@ -49,9 +53,8 @@ public class MiniGame : MonoBehaviour
 
     public void ClickOnCard(Card card)
     {
-        if (!_cards.Contains(card))
-            return;
-        
+        if (!_cards.Contains(card)) return;
+
         if (_currentCard == null)
         {
             _currentCard = card;
@@ -65,6 +68,9 @@ public class MiniGame : MonoBehaviour
             
             _cards.Remove(_currentCard);
             _cards.Remove(card);
+            
+            if (_cards.Count == 0)
+                OnGameEnd?.Invoke();
         }
         else
         {

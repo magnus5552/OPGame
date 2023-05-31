@@ -17,6 +17,7 @@ public class Card : MonoBehaviour
     private bool _isFront;
     private float _time;
     public double FlipTime = 1;
+    private bool _isFlipping;
 
 
     // Start is called before the first frame update
@@ -31,6 +32,8 @@ public class Card : MonoBehaviour
 
     private async void OnClick()
     {
+        if (_isFlipping || _image.sprite == FaceImage) return;
+        
         await Flip();
         gameField.ClickOnCard(this);
     }
@@ -56,6 +59,7 @@ public class Card : MonoBehaviour
         var startScale = transform.localScale;
         var endScale = new Vector3(-startScale.x, startScale.y, startScale.z);
         var isChanged = false;
+        _isFlipping = true;
         
         while (Time.time < endTime)
         {
@@ -69,6 +73,7 @@ public class Card : MonoBehaviour
             
             await Task.Yield();
         }
+        _isFlipping = false;
 
         callBack();
         await Task.Delay(300);
