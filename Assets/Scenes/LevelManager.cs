@@ -3,16 +3,27 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    private int _currentLevel = 1;
-
-    public void OnCollisionEnter2D(Collision2D col)
+    private Scene _currentScene;
+    void Start()
     {
-        LoadNextScene();
+        _currentScene = SceneManager.GetActiveScene();
     }
 
-    public void LoadNextScene()
+    public void LoadScene(int levelIndex)
     {
-        _currentLevel += 1;
-        SceneManager.LoadScene($"Level{_currentLevel}");
+        SceneManager.LoadScene($"Level{levelIndex}");
+    }
+    
+    public void LoadSceneAdditive(int levelIndex)
+    {
+        SceneManager.LoadScene($"Level{levelIndex}", LoadSceneMode.Additive);
+        
+        var scene = SceneManager.GetSceneByName($"Level{levelIndex}");
+        SceneManager.SetActiveScene(scene);
+    }
+
+    public void UnloadScene(int levelIndex)
+    {
+        SceneManager.UnloadSceneAsync($"Level{levelIndex}");
     }
 }

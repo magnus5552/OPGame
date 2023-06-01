@@ -1,10 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class ModeChanger : MonoBehaviour
 {
@@ -45,7 +42,6 @@ public class ModeChanger : MonoBehaviour
     public void ChangeMode()
     {
         _audio.PlayOneShot(_audio.clip);
-        Debug.Log(_audio.isPlaying);
         currentMode = currentMode switch
         {
             Mode.White => Mode.Black,

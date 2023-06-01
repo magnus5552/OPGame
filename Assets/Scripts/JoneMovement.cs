@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class JoneMovement : MonoBehaviour
 {
@@ -10,28 +10,40 @@ public class JoneMovement : MonoBehaviour
     private Animator jone;
     [SerializeField]
     private Transform street, player, eventSystem;
-    
-    // Update is called once per frame
+
+    private Generation _generation;
+    private ChangeRun _changeRun;
+    private EndRun _endRun;
+
+    private void Start()
+    {
+        _generation = street.GetComponent<Generation>();
+        _changeRun = street.GetComponent<ChangeRun>();
+        _endRun = eventSystem.GetComponent<EndRun>();
+
+        distance = Screen.width * distance / 20 / 1000;
+    }
+
     void FixedUpdate()
     {
-        var eventRun = street.GetComponent<ChangeRun>().EventRun;
-        var bottomSide = street.GetComponent<Generation>().bottomSideGeneration;
-        var topSide = street.GetComponent<Generation>().topSideGeneration;
+        var eventRun = _changeRun.EventRun;
+        
+        var bottomSide = _generation.bottomSideGeneration;
+        var topSide = _generation.topSideGeneration;
 
         if (eventRun)
         {
             jone.SetBool("isMove", true);
             var offsetY = Random.Range(-velocityY, velocityY);
-            if (transform.position.y >= (topSide - 3f) || transform.position.y <= (bottomSide + 3f))
+            if (transform.position.y >= topSide - 3f || transform.position.y <= bottomSide + 3f)
                 offsetY = -offsetY;
 
             transform.position += new Vector3(velocityX, offsetY, 0);
         }
 
-        if ((player.position.x - transform.position.x) <= distance)
+        if (player.position.x - transform.position.x <= distance)
         {
-            // Запуск катсцены
-            eventSystem.GetComponent<EndRun>().EndChase();
+            _endRun.EndChase();
         }
     }
 
@@ -39,6 +51,4 @@ public class JoneMovement : MonoBehaviour
     {
         velocityX += value;
     }
-
-
 }

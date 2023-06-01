@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,15 +6,13 @@ public class PlayerMovement : MonoBehaviour
     private float velocity;
     [SerializeField]
     private Animator blackAnimator, whiteAnimator;
-    [SerializeField]
-    private Transform street, blackPlayer, whitePlayer;
 
     private Rigidbody2D _cc;
 
     private bool _isPlayerMove;
     private static readonly int IsPlayerMove = Animator.StringToHash("IsPlayerMove");
 
-    private Facing _facing;
+    public Facing Facing;
 
     // Start is called before the first frame update
     void Start()
@@ -29,22 +23,20 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        var run = street.GetComponent<ChangeRun>().EventRun;
-
-        if (!run)
-            Move();
+        Move();
+        OnTransformChange();
     }
 
     private void FlipIfDirectionChanged(float dir)
     {
-        if ((dir >= 0 || _facing == Facing.Left) && (dir <= 0 || _facing == Facing.Right)) return;
+        if ((dir >= 0 || Facing == Facing.Left) && (dir <= 0 || Facing == Facing.Right)) return;
 
         Flip();
     }
 
-    private void Flip()
+    public void Flip()
     {
-        _facing = _facing == Facing.Left ? Facing.Right : Facing.Left;
+        Facing = Facing == Facing.Left ? Facing.Right : Facing.Left;
 
         var scale = _cc.gameObject.transform.localScale;
         scale.x *= -1;
@@ -55,16 +47,6 @@ public class PlayerMovement : MonoBehaviour
     {
 
         var movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
-        if (movement.magnitude > 0)
-        {
-            blackAnimator.SetBool("BlackMove", true);
-            whiteAnimator.SetBool("WhiteMove", true);
-        }
-        else
-        {
-            blackAnimator.SetBool("BlackMove", false);
-            whiteAnimator.SetBool("WhiteMove", false);
-        }
 
         _cc.velocity = movement * velocity;
 
@@ -82,9 +64,18 @@ public class PlayerMovement : MonoBehaviour
         blackAnimator.SetBool(IsPlayerMove, _isPlayerMove);
         whiteAnimator.SetBool(IsPlayerMove, _isPlayerMove);
     }
+
+    private void OnTransformChange()
+    {
+
+        blackAnimator.SetBool("BlackMove", transform.hasChanged);
+        whiteAnimator.SetBool("WhiteMove", transform.hasChanged);
+        
+        transform.hasChanged = false;
+    }
 }
 
-enum Facing
+public enum Facing
 {
     Right,
     Left

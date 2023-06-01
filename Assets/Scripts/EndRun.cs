@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class EndRun : MonoBehaviour
@@ -9,11 +8,17 @@ public class EndRun : MonoBehaviour
     [SerializeField]
     private Animator john;
 
-    // Start is called before the first frame update
+    private ChangeRun _changeRun;
+
+    private void Start()
+    {
+        _changeRun = street.GetComponent<ChangeRun>();
+    }
 
     public void EndChase()
     {
-        street.GetComponent<ChangeRun>().EventRun = false;
+        
+        _changeRun.EventRun = false;
         john.SetBool("isMove", false);
     }
 }
