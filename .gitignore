@@ -14,6 +14,8 @@
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
 
+v[0-9]/
+
 # Recordings can get excessive in size
 /[Rr]ecordings/
 
