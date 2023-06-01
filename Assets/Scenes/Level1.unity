@@ -967,6 +967,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 203399291877807841, guid: 6e91dc4d1a02c6d439b60e74ff4f38ee, type: 3}
   m_PrefabInstance: {fileID: 1850617403}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &221523668 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3556207897619248554, guid: f424af2f8fe088347bfb7b77c545a4ea, type: 3}
+  m_PrefabInstance: {fileID: 936788366}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &240203273
 GameObject:
   m_ObjectHideFlags: 0
@@ -2795,6 +2800,14 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 3556207897619248553, guid: f424af2f8fe088347bfb7b77c545a4ea, type: 3}
   m_PrefabInstance: {fileID: 936788366}
   m_PrefabAsset: {fileID: 0}
+--- !u!81 &936788372
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221523668}
+  m_Enabled: 1
 --- !u!1001 &944414158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3253,7 +3266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2762750386539676564, guid: 1daf6dea0b0167445a0d3325b68c74b8, type: 3}
       propertyPath: m_Size.y
-      value: 4.413187
+      value: 4.693862
       objectReference: {fileID: 0}
     - target: {fileID: 2762750386539676564, guid: 1daf6dea0b0167445a0d3325b68c74b8, type: 3}
       propertyPath: m_Offset.x
@@ -3261,7 +3274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2762750386539676564, guid: 1daf6dea0b0167445a0d3325b68c74b8, type: 3}
       propertyPath: m_Offset.y
-      value: -0.17231083
+      value: -0.031973243
       objectReference: {fileID: 0}
     - target: {fileID: 2762750386935132604, guid: 1daf6dea0b0167445a0d3325b68c74b8, type: 3}
       propertyPath: m_IsActive
@@ -4432,6 +4445,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 666707950981810705, guid: 40b3f0cd8e39c8648abd1f4e8dbdb76f, type: 3}
+      propertyPath: m_Volume
+      value: 0.796
+      objectReference: {fileID: 0}
+    - target: {fileID: 666707950981810705, guid: 40b3f0cd8e39c8648abd1f4e8dbdb76f, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170959327547105651, guid: 40b3f0cd8e39c8648abd1f4e8dbdb76f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1170959327815797840, guid: 40b3f0cd8e39c8648abd1f4e8dbdb76f, type: 3}
       propertyPath: m_Name
       value: Mechanics

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class PlayerMovementLevel1 : MonoBehaviour
 
     private Rigidbody2D _cc;
 
+    private Facing _facing;
+
     private bool _isPlayerMove;
     private static readonly int IsPlayerMove = Animator.StringToHash("IsPlayerMove");
 
@@ -20,9 +23,31 @@ public class PlayerMovementLevel1 : MonoBehaviour
         _cc = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
+        Move();
+    }
+
+    private void FlipIfDirectionChanged(float dir)
+    {
+        if ((dir >= 0 || _facing == Facing.Left) && (dir <= 0 || _facing == Facing.Right)) return;
+
+        Flip();
+    }
+    
+
+    private void Flip()
+    {
+        _facing = _facing == Facing.Left ? Facing.Right : Facing.Left;
+
+        var scale = _cc.gameObject.transform.localScale;
+        scale.x *= -1;
+        _cc.gameObject.transform.localScale = scale;
+    }
+
+    private void Move()
+    {
+
         var movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
         if (movement.magnitude > 0)
         {
@@ -38,9 +63,10 @@ public class PlayerMovementLevel1 : MonoBehaviour
         _cc.velocity = movement * velocity;
 
         var (dx, dy) = (Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        ActivateTriggers();
 
         _isPlayerMove = dx != 0 || dy != 0;
+        ActivateTriggers();
+        FlipIfDirectionChanged(dx);
 
         _cc.velocity = new Vector3(dx, dy) * velocity;
     }
