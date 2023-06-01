@@ -6,7 +6,7 @@ using System;
 public class SmartCamera : MonoBehaviour
 {
     [SerializeField]
-    private Transform player, street;
+    private Transform player;
     [SerializeField]
     private float insideRightLeftSide;
     [SerializeField]
@@ -25,7 +25,7 @@ public class SmartCamera : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {
+    { 
          CheckAndMove();
     }
 

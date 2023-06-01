@@ -3,7 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    private int _currentLevel = 1;
+    private string[] levels = new string[] { "Level1", "Maze", "MiniGame" , "Level4" };
+    private int _currentLevel = 0;
 
     public void OnCollisionEnter2D(Collision2D col)
     {
@@ -13,6 +14,6 @@ public class LevelManager : MonoBehaviour
     public void LoadNextScene()
     {
         _currentLevel += 1;
-        SceneManager.LoadScene($"Level{_currentLevel}");
+        SceneManager.LoadScene($"{levels[_currentLevel]}");
     }
 }
