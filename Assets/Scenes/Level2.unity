@@ -31744,12 +31744,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1599374596}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9c581c4e5a75014d988eee7e358c541, type: 3}
+  m_Script: {fileID: 11500000, guid: 42ab71f3c90dd8f438c8c7b5c8e9860a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 20
   blackAnimator: {fileID: 619983514}
   whiteAnimator: {fileID: 934833377}
+  Facing: 0
 --- !u!95 &1599374598 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1873878642, guid: 1daf6dea0b0167445a0d3325b68c74b8, type: 3}
