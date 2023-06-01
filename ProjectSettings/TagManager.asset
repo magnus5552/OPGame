@@ -6,6 +6,8 @@ TagManager:
   tags:
   - WhiteObject
   - BlackObject
+  - Wall
+  - Monster
   layers:
   - Default
   - TransparentFX
@@ -13,7 +15,7 @@ TagManager:
   - IgnoreBrother
   - Water
   - UI
-  - 
+  - Wall
   - 
   - 
   - 
