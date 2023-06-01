@@ -1,15 +1,19 @@
 using System;
 using System.Linq;
 using DefaultNamespace;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class ModeChanger : MonoBehaviour
 {
     [SerializeField] public Mode currentMode;
     [SerializeField] private KeyCode _keyCode;
+    [SerializeField] private float delay = 2;
     private AudioSource _audio;
     private GameObject[] _whiteObjects;
     private GameObject[] _blackObjects;
+
+    private bool _isAbleToChangeMode;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +24,7 @@ public class ModeChanger : MonoBehaviour
         _blackObjects = GameObject.FindGameObjectsWithTag("BlackObject");
         //AddEvents();
         UpdateMode();
+        _isAbleToChangeMode = true;
     }
 
     private void AddEvents()
@@ -33,15 +38,22 @@ public class ModeChanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(_keyCode))
-        {
-            ChangeMode();
-        }
+        if (!Input.GetKeyUp(_keyCode) || !_isAbleToChangeMode) return;
+        
+        ChangeModeDelay();
+        _audio.PlayOneShot(_audio.clip);
+        ChangeMode();
+    }
+
+    public async void ChangeModeDelay()
+    {
+        _isAbleToChangeMode = false;
+        await Task.Delay((int)delay * 1000);
+        _isAbleToChangeMode = true;
     }
 
     public void ChangeMode()
     {
-        _audio.PlayOneShot(_audio.clip);
         currentMode = currentMode switch
         {
             Mode.White => Mode.Black,
