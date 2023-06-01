@@ -11,9 +11,16 @@ public class KillPlayer : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            other.transform.position = checkPoints.GetComponent<LastCheckPoint>().GoToLastCheckPoint();
-            mainCamera.position = new Vector3(other.transform.position.x, other.transform.position.y, -10);
+            if (transform.tag == "BlackObject")
+            {
+                other.transform.position = checkPoints.GetComponent<LastCheckPoint>().GoToBlackLastCheckPoint();
+                mainCamera.position = new Vector3(other.transform.position.x, other.transform.position.y, -10);
+            }
+            else if (transform.tag == "WhiteObject")
+            {
+                other.transform.position = checkPoints.GetComponent<LastCheckPoint>().GoToWhiteLastCheckPoint();
+                mainCamera.position = new Vector3(other.transform.position.x, other.transform.position.y, -10);
+            }
         }
-           
     }
 }
