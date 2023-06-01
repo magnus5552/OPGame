@@ -64,14 +64,18 @@ public class PlayerMovement : MonoBehaviour
         blackAnimator.SetBool(IsPlayerMove, _isPlayerMove);
         whiteAnimator.SetBool(IsPlayerMove, _isPlayerMove);
     }
-
+    
     private void OnTransformChange()
     {
+        SetAnimatorsBool(transform.hasChanged);
 
-        blackAnimator.SetBool("BlackMove", transform.hasChanged);
-        whiteAnimator.SetBool("WhiteMove", transform.hasChanged);
-        
         transform.hasChanged = false;
+    }
+
+    public void SetAnimatorsBool(bool value)
+    {
+        blackAnimator.SetBool("BlackMove", value);
+        whiteAnimator.SetBool("WhiteMove", value);
     }
 }
 

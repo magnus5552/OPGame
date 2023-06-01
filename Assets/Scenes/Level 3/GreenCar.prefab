@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f451d9a71ceaab4f80282e735002f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 1
+  force: 2
   jone: {fileID: 0}
   street: {fileID: 0}
 --- !u!1 &1371584373319077558

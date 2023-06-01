@@ -4,7 +4,7 @@ using System;
 public class FolllowPlayer : MonoBehaviour
 {
     [SerializeField]
-    private Transform player, street;
+    private Transform player;
     [SerializeField]
     private float distance;
 

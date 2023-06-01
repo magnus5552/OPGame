@@ -20,26 +20,22 @@ public class JoneMovement : MonoBehaviour
         _generation = street.GetComponent<Generation>();
         _changeRun = street.GetComponent<ChangeRun>();
         _endRun = eventSystem.GetComponent<EndRun>();
-
-        distance = Screen.width * distance / 20 / 1000;
     }
 
     void FixedUpdate()
     {
         var eventRun = _changeRun.EventRun;
+        if (!eventRun) return;
         
         var bottomSide = _generation.bottomSideGeneration;
         var topSide = _generation.topSideGeneration;
+        
+        jone.SetBool("isMove", true);
+        var offsetY = Random.Range(-velocityY, velocityY);
+        if (transform.position.y >= topSide - 3f || transform.position.y <= bottomSide + 3f)
+            offsetY = -offsetY;
 
-        if (eventRun)
-        {
-            jone.SetBool("isMove", true);
-            var offsetY = Random.Range(-velocityY, velocityY);
-            if (transform.position.y >= topSide - 3f || transform.position.y <= bottomSide + 3f)
-                offsetY = -offsetY;
-
-            transform.position += new Vector3(velocityX, offsetY, 0);
-        }
+        transform.position += new Vector3(velocityX, offsetY, 0);
 
         if (player.position.x - transform.position.x <= distance)
         {

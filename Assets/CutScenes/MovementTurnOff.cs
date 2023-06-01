@@ -19,5 +19,7 @@ public class MovementTurnOff : MonoBehaviour
     void Update()
     {
         _movement.enabled = !_changeRun.EventRun;
+        if (_changeRun.EventRun)
+            _movement.SetAnimatorsBool(true);
     }
 }

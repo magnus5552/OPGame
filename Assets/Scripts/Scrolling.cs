@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Scrolling : MonoBehaviour
@@ -23,16 +24,15 @@ public class Scrolling : MonoBehaviour
 
         if (sprites[3].position.x >= side || sprites[2].position.x >= side)
         {
-            sprites[4].GetComponent<SpriteRenderer>().sortingOrder = 1;
-            sprites[5].GetComponent<SpriteRenderer>().sortingOrder = 1;
-            sprites[2].GetComponent<SpriteRenderer>().sortingOrder = 3;
-            sprites[3].GetComponent<SpriteRenderer>().sortingOrder = 3;
-            sprites[0].GetComponent<SpriteRenderer>().sortingOrder = 2;
-            sprites[1].GetComponent<SpriteRenderer>().sortingOrder = 2;
             sprites[4].position += Vector3.left * offset1;
             sprites[5].position += Vector3.left * offset1;
             (sprites[0], sprites[1], sprites[2], sprites[3], sprites[4], sprites[5]) =
             (sprites[4], sprites[5], sprites[0], sprites[1], sprites[2], sprites[3]);
+            
+            for (var i = 0; i < sprites.Count; i++)
+                sprites[i].GetComponent<SpriteRenderer>().sortingOrder = i / 2 + 1;
+            
+            
             street.GetComponent<Generation>().DeleteGeneration(sprites[0]);
             street.GetComponent<Generation>().Generate(sprites[0]);
         }
@@ -40,11 +40,9 @@ public class Scrolling : MonoBehaviour
 
     private void MoveSprites()
     {
-        sprites[0].position += Vector3.right * scrollSpeed;
-        sprites[1].position += Vector3.right * scrollSpeed;
-        sprites[2].position += Vector3.right * scrollSpeed;
-        sprites[3].position += Vector3.right * scrollSpeed;
-        sprites[4].position += Vector3.right * scrollSpeed;
-        sprites[5].position += Vector3.right * scrollSpeed;
+        foreach (var sprite in sprites)
+        {
+            sprite.position += Vector3.right * scrollSpeed;
+        }
     }
 }
