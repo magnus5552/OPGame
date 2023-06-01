@@ -23,8 +23,8 @@ public class SmartCamera : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {
-        CheckAndMove();
+    { 
+         CheckAndMove();
     }
 
     //camera follows player, if it's necessery
