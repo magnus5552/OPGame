@@ -141,12 +141,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2762750386539676555}
+  - component: {fileID: 2762750386539676554}
   - component: {fileID: 2762750386539676565}
   - component: {fileID: 2762750386539676564}
   - component: {fileID: 1873878633}
+  - component: {fileID: 1873878637}
   - component: {fileID: 1873878642}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,6 +172,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2762750386539676554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762750386539676552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ab71f3c90dd8f438c8c7b5c8e9860a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: 15
+  blackAnimator: {fileID: 681531822}
+  whiteAnimator: {fileID: 748077930}
 --- !u!50 &2762750386539676565
 Rigidbody2D:
   serializedVersion: 4
@@ -204,7 +221,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.1975081, y: -2.115759}
+  m_Offset: {x: 0.044261694, y: -0.009041786}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -215,7 +232,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6660309, y: 0.5262908}
+  m_Size: {x: 2.6071157, y: 4.75471}
   m_EdgeRadius: 0
 --- !u!212 &1873878633
 SpriteRenderer:
@@ -269,6 +286,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!320 &1873878637
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762750386539676552}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 2249548630598581102, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 8452682069586290513, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -1567003659798128101, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 681531822}
+  - key: {fileID: -6422550216369190966, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 1873878642}
+  - key: {fileID: -2021259282245873219, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4448553894598387718, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 3165430556878832134, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6566910714763100563, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7374748481531276888, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1861142991181837066, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 20012476241745983, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -4115950448535537786, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6116987094017708708, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 8032352742094917371, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 6987684129195681196}
+  - key: {fileID: 0}
+    value: {fileID: 0}
+  - key: {fileID: 4235657502417117464, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 2219102384640780251, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 5035868845070731616, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2750316007986206289, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3648796610056990296, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 8619700047726473818, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 153364464337473272, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 8160428294351709312, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7389046922141592582, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1803120999401953177, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1528619047452399990, guid: c67684e5b4d953240942074675c4dbb0, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
 --- !u!95 &1873878642
 Animator:
   serializedVersion: 5

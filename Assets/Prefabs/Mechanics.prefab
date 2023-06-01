@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1170959327547105648}
   - component: {fileID: 1170959327547105649}
+  - component: {fileID: 2066820808}
   m_Layer: 0
   m_Name: GameMode
   m_TagString: Untagged
@@ -44,8 +45,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09372e92805158640b3ec3b2af65e54f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentMode: 0
+  currentMode: 0
   _keyCode: 32
+--- !u!114 &2066820808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170959327547105651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: e4705a7cd8ea744498ad4869f3217bd4, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1170959327547105649}
+          m_TargetAssemblyTypeName: ModeChanger, Assembly-CSharp
+          m_MethodName: ChangeMode
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1170959327815797840
 GameObject:
   m_ObjectHideFlags: 0
