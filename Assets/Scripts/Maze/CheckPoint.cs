@@ -20,6 +20,7 @@ public class CheckPoint : MonoBehaviour
                 transform.GetComponent<SpriteRenderer>().sprite = blackSprite;
             else if (transform.tag == "WhiteObject")
                 transform.GetComponent<SpriteRenderer>().sprite = whiteSprite;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
             
     }

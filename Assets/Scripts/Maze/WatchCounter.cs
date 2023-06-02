@@ -6,10 +6,8 @@ using UnityEngine;
 public class WatchCounter : MonoBehaviour
 {
     [SerializeField]
-    private Transform skull1, skull2, pink1, pink2, otherCounter;
+    private GameObject skull1, skull2, pink1, pink2, text, LockSprite, watchSprite;
     public int countWatches;
-    [SerializeField]
-    private GameObject text;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +20,13 @@ public class WatchCounter : MonoBehaviour
     {
         if (countWatches == 0)
         {
-            Destroy(skull1);
-            Destroy(skull2);
-            Destroy(pink1);
-            Destroy(pink2);
-            Destroy(otherCounter);
-            Destroy(gameObject);
+            skull1.SetActive(false);
+            skull2.SetActive(false);
+            pink1.SetActive(false);
+            pink2.SetActive(false);
+            LockSprite.SetActive(false);
+            watchSprite.SetActive(false);
+            gameObject.SetActive(false);
         }
         var textMesh = text.GetComponent<TextMeshProUGUI>();
         textMesh.text = $"{countWatches}";
